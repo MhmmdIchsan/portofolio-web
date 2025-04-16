@@ -28,7 +28,7 @@ export const projects = [
     },
     {
         id: 4,
-        tittle: "LAMBO",
+        title: "LAMBO",
         description: "Expert system for detecting stomach diseases based on user-input symptoms.",
         image: "/images/project4.jpg",
         techStack: ["Python", "Flask", "Javascript", "CSS"],
@@ -37,7 +37,7 @@ export const projects = [
     },
     {
         id: 5,
-        tittle: "RubbishRevive",
+        title: "RubbishRevive",
         description: "Web-based application for waste pickup and point redemption to encourage public awareness of proper waste disposal.",
         image: "/images/project5.jpg",
         techStack: ["Laravel", "Javascript", "TailwindCSS", "MySQL"],
@@ -46,7 +46,7 @@ export const projects = [
     },
     {
         id: 6,
-        tittle: "Booking Me",
+        title: "Booking Me",
         description: "Web-based application that helps students and lecturers schedule appointments effectively.",
         image: "/images/project6.jpg",
         techStack: ["Laravel", "Javascript Calendar", "TailwindCSS", "MySQL"],
