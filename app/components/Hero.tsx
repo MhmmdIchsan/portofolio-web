@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Typewriter } from "react-simple-typewriter";
+
 
 export default function Hero() {
   return (
