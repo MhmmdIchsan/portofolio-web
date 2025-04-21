@@ -13,8 +13,8 @@ export default function About() {
         <div className="flex justify-center">
           <div className="relative w-72 h-72 md:w-96 md:h-96">
             <Image
-              src="/images/laptop-3d.png" // Ganti dengan ilustrasi 3D laptop kamu
-              alt="Laptop Illustration"
+              src="/image/pic1.jpeg"
+              alt="Personal Illustration"
               fill
               className="object-contain drop-shadow-[0_0_20px_#00FFB2]"
             />
@@ -30,7 +30,7 @@ export default function About() {
             Hi, I’m <span className="font-semibold">Muhammad Ichsan</span>, a passionate Software Developer who loves turning complex problems into simple, elegant solutions.
           </p>
           <p className="text-lg mb-4 leading-relaxed text-[#C1FCEA]">
-            I specialize in <span className="font-semibold text-[#00FFB2]">JavaScript</span>, <span className="font-semibold text-[#00FFB2]">React</span>, <span className="font-semibold text-[#00FFB2]">Node.js</span>, and <span className="font-semibold text-[#00FFB2]">Python</span>.
+            I specialize in <span className="font-semibold text-[#00FFB2]">Web Development</span>, <span className="font-semibold text-[#00FFB2]">Mobile Development</span>, <span className="font-semibold text-[#00FFB2]">API Development</span>, and <span className="font-semibold text-[#00FFB2]">Python</span>.
           </p>
           <p className="text-lg text-[#C1FCEA]">
             Outside of coding, I enjoy following tech trends, contributing to open source, and sipping coffee ☕.
