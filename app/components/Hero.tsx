@@ -1,195 +1,218 @@
-"use client";
+"use client"
 
+// app/components/HeroSection.tsx
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { FaLinkedinIn, FaGithub, FaInstagram } from "react-icons/fa";
+import RoleSwitcher from "./RoleSwitcher";
 
-
-export default function Hero() {
+export default function HeroSection() {
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#111827]"
-    >
-      
-      {/* Background Image */}
-      <div className="absolute z-0 flex items-center justify-center w-full h-full">
-        {/* Left Ghost Shadow */}
-        <Image
-          src="/image/foto.png"
-          alt="Muhammad Ichsan Shadow Left"
-          width={900}
-          height={1280}
-          className="absolute right-1/8 -translate-x-[60%] blur-md opacity-30 scale-x-[-1]"
-          style={{
-            objectFit: "cover",
-            objectPosition: "center",
-          }}
-        />
-
-        <Image
-          src="/image/foto.png"
-          alt="Muhammad Ichsan Shadow Left"
-          width={900}
-          height={1280}
-          className="absolute right-1/4 -translate-x-[60%] blur-md opacity-10 scale-x-[-1]"
-          style={{
-            objectFit: "cover",
-            objectPosition: "center",
-          }}
-        />
-
-        {/* Right Ghost Shadow */}
-        <Image
-          src="/image/foto.png"
-          alt="Muhammad Ichsan Shadow Right"
-          width={900}
-          height={1280}
-          className="absolute left-1/8 translate-x-[60%] blur-md opacity-30"
-          style={{
-            objectFit: "cover",
-            objectPosition: "center",
-          }}
-        />
-
-        <Image
-          src="/image/foto.png"
-          alt="Muhammad Ichsan Shadow Right"
-          width={900}
-          height={1280}
-          className="absolute left-1/4 translate-x-[60%] blur-md opacity-10"
-          style={{
-            objectFit: "cover",
-            objectPosition: "center",
-          }}
-        />
-
-        {/* Actual Main Image */}
-        <Image
-          src="/image/foto.png"
-          alt="Muhammad Ichsan"
-          width={900}
-          height={1280}
-          className="object-cover object-center drop-shadow-[0_0_60px_#00FFB2] rounded-xl z-10"
-          quality={100}
-          priority
-          style={{
-            objectPosition: "center",
-            opacity: 0.9,
-          }}
-        />
+    <section id="hero" className="relative min-h-screen flex items-center bg-[#0F172A] text-white overflow-hidden">
+      {/* === Background Decorative Elements === */}
+      <div className="absolute inset-0 z-0">
+        {/* Geometric shapes */}
+        <div className="absolute top-20 left-10 w-16 h-16 border-2 border-[#00FFB2] rotate-45 opacity-30"></div>
+        <div className="absolute bottom-40 left-20 w-24 h-24 rounded-full border-2 border-dashed border-[#38bdf8] opacity-20"></div>
+        <div className="absolute top-1/3 right-1/4 w-12 h-12 bg-gradient-to-r from-[#00FFB2] to-[#38bdf8] rounded-full opacity-20"></div>
+        
+        {/* Large background circle */}
+        <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-gradient-to-br from-[#00FFB2]/10 to-[#38bdf8]/10 blur-3xl"></div>
       </div>
 
-      {/* Content */}
-      <div className="container mx-auto px-4 mt-64">
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-[#00FFB2] mb-4 drop-shadow-lg">
-            Muhammad Ichsan
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-white mb-12 drop-shadow-md">
-            Turning ideas into elegant digital experiences.
-          </p>
-
-          {/* Social Media Buttons */}
-          <motion.div
-            className="flex space-x-6 justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-          >
-            {/* LinkedIn */}
-            <Link
-              href="https://www.linkedin.com/in/your-linkedin"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-blue-300 transition duration-300 transform hover:scale-110"
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center justify-between min-h-screen py-20">
+          
+          {/* === LEFT CONTENT === */}
+          <div className="flex-1 lg:pr-12 text-center lg:text-left mb-12 lg:mb-0">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-10 h-10"
-                viewBox="0 0 24 24"
-                fill="currentColor"
+              {/* Greeting */}
+              <motion.p 
+                className="text-[#00FFB2] text-lg font-medium mb-2"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.784 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-              </svg>
-            </Link>
+                Hello,
+              </motion.p>
+              
+              {/* Name */}
+              <motion.h1 
+                className="text-4xl lg:text-6xl xl:text-7xl font-bold mb-4"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              >
+                I Am<br></br>{" "}
+                <span className="bg-gradient-to-r from-[#00FFB2] to-[#38bdf8] bg-clip-text text-transparent">
+                  Muhammad Ichsan
+                </span>
+              </motion.h1>
+              
+              {/* Role */}
+              <motion.h2 
+                className="text-xl lg:text-3xl font-semibold text-[#38bdf8] mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+              >
+                <RoleSwitcher />
+              </motion.h2>
+              
+              {/* Description */}
+              <motion.p 
+                className="text-gray-300 text-base lg:text-lg leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.9 }}
+              >
+              I am a web developer passionate about building modern, responsive, and elegant applications — both front-end and back-end. I also enjoy crafting intuitive user interfaces, reliable APIs, and exploring mobile development to deliver seamless cross-platform experiences.
+              </motion.p>
 
-            {/* Instagram */}
-            <Link
-              href="https://www.instagram.com/your-instagram"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-pink-300 transition duration-300 transform hover:scale-110"
+              {/* Buttons */}
+              <motion.div 
+                className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 1.1 }}
+              >
+                <Link
+                  href="/CV.pdf"
+                  className="group bg-gradient-to-r from-[#00FFB2] to-[#38bdf8] text-[#0F172A] px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-[#00FFB2]/25 transition-all duration-300 transform hover:scale-105"
+                >
+                  Download CV
+                </Link>
+
+                <Link
+                  href="#projects"
+                  className="border-2 border-[#00FFB2] px-8 py-4 rounded-full text-white hover:bg-[#00FFB2] hover:text-[#0F172A] transition-all duration-300 font-semibold"
+                >
+                  View Projects
+                </Link>
+              </motion.div>
+
+              {/* Social Links */}
+              <motion.div 
+                className="flex items-center justify-center lg:justify-start gap-6 mt-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.3 }}
+              >
+                <div className="flex items-center gap-4">
+                  <div className="flex gap-4">
+                  {/* LinkedIn */}
+                  <a
+                    href="https://www.linkedin.com/in/mhmmdichsan"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 bg-[#00FFB2] rounded-full flex items-center justify-center hover:bg-[#38bdf8] transition-colors cursor-pointer"
+                  >
+                    <FaLinkedinIn className="text-[#0F172A] text-sm" />
+                  </a>
+
+                  {/* GitHub */}
+                  <a
+                    href="https://github.com/MhmmdIchsan"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 bg-[#00FFB2] rounded-full flex items-center justify-center hover:bg-[#38bdf8] transition-colors cursor-pointer"
+                  >
+                    <FaGithub className="text-[#0F172A] text-sm" />
+                  </a>
+
+                  {/* Instagram */}
+                  <a
+                    href="https://instagram.com/mhmd.ichsnn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 bg-[#00FFB2] rounded-full flex items-center justify-center hover:bg-[#38bdf8] transition-colors cursor-pointer"
+                  >
+                    <FaInstagram className="text-[#0F172A] text-sm" />
+                  </a>
+                </div>
+
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* === RIGHT IMAGE === */}
+          <div className="flex-1 lg:pl-8 flex justify-center lg:justify-end">
+            <motion.div 
+              className="relative"
+              initial={{ opacity: 0, x: 50, scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 1, delay: 0.3 }}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-10 h-10"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-              </svg>
-            </Link>
+              {/* Image container with enhanced styling */}
+              <div className="relative group">
+                {/* Glowing background */}
+                <div className="absolute -inset-4 bg-gradient-to-r from-[#00FFB2] to-[#38bdf8] rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+                
+                {/* Main image */}
+                <div className="relative bg-gradient-to-br from-[#1e293b] to-[#0f172a] p-2 rounded-3xl border border-[#00FFB2]/20">
+                  <Image
+                    src="/image/foto.png"
+                    alt="Muhammad Ichsan"
+                    width={500}
+                    height={600}
+                    priority
+                    className="rounded-2xl w-[320px] sm:w-[400px] lg:w-[500px] object-cover shadow-2xl"
+                    style={{ objectPosition: "center" }}
+                  />
+                  
+                  {/* Decorative overlay */}
+                  <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-[#00FFB2] to-[#38bdf8] rounded-2xl rotate-12 opacity-80 blur-sm"></div>
+                  <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-[#38bdf8] to-[#1e3a8a] rounded-2xl -rotate-12 opacity-60 blur-sm"></div>
+                </div>
+              </div>
 
-            {/* GitHub */}
-            <Link
-              href="https://github.com/your-github"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-gray-300 transition duration-300 transform hover:scale-110"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-10 h-10"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-              </svg>
-            </Link>
-          </motion.div>
-        </motion.div>
-      </div>
-
-      {/* Marquee Running Text */}
-      <div className="absolute bottom-0 w-full bg-[#00FFB2] py-2 overflow-hidden">
-        <div className="whitespace-nowrap animate-marquee text-[#0F172A] text-2xl font-semibold">
-          Software Developer • Software Engineer • Web Developer • Mobile
-          Developer • FullStack Developer • API Engineer •
+              {/* Floating elements around image */}
+              <motion.div 
+                className="absolute -top-8 -left-8 w-6 h-6 bg-[#00FFB2] rounded-full"
+                animate={{ 
+                  y: [0, -10, 0],
+                  scale: [1, 1.2, 1]
+                }}
+                transition={{ 
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+              
+              <motion.div 
+                className="absolute -bottom-6 -right-6 w-4 h-4 bg-[#38bdf8] rounded-full"
+                animate={{ 
+                  y: [0, 10, 0],
+                  scale: [1, 0.8, 1]
+                }}
+                transition={{ 
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1
+                }}
+              />
+            </motion.div>
+          </div>
         </div>
       </div>
 
-      {/* Custom styles */}
+      {/* === Animated Background Elements === */}
       <style jsx>{`
-        .animate-marquee {
-          animation: marquee 20s linear infinite;
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-20px) rotate(180deg); }
         }
-
-        @keyframes marquee {
-          0% {
-            transform: translateX(100%);
-          }
-          100% {
-            transform: translateX(-100%);
-          }
-        }
-
-        .glow-img {
-          box-shadow:
-            0 0 40px #00ffb2,
-            0 0 80px #00ffb2;
-          transition: box-shadow 0.5s ease-in-out;
-        }
-
-        .glow-img:hover {
-          box-shadow:
-            0 0 60px #00ffcc,
-            0 0 100px #00ffcc;
+        @keyframes pulse-glow {
+          0%, 100% { opacity: 0.4; }
+          50% { opacity: 0.8; }
         }
       `}</style>
     </section>
