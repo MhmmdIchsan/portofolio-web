@@ -11,7 +11,8 @@ import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
-
+import FloatingNavigator
+ from "./components/FloatingNavigator";
 export default function Home() {
   const [showContent, setShowContent] = useState(false);
 
@@ -29,6 +30,7 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
+      <FloatingNavigator />
     <Navbar />
     <Hero />
     <About />
